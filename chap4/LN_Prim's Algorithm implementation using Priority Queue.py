@@ -23,12 +23,18 @@ def prim(G, start):
             continue
 
         in_mst[u] = True  # 현재 정점을 MST에 포함
-        print(f"Include vertex {vertex_names[u]} in MST with cost {current_cost}")
+        print(f"\n=== Step: Include vertex {vertex_names[u]} in MST with cost {current_cost} ===")
+
+        # 선택할 수 있는 edge들 출력
+        print(f"Current edges to choose from:")
+        for v, weight in G[u]:
+            if not in_mst[v]:
+                print(f"  ({vertex_names[u]}, {vertex_names[v]}) with weight {weight}")
 
         # 인접한 정점들의 비용을 갱신
         for v, weight in G[u]:
             if not in_mst[v] and cost[v] > weight:
-                print(f"Update: cost({vertex_names[v]}) changes from {cost[v]} to {weight}, pre({vertex_names[v]}) = {vertex_names[u]}")
+                print(f"  -> Update: cost({vertex_names[v]}) changes from {cost[v]} to {weight}, pre({vertex_names[v]}) = {vertex_names[u]}")
                 cost[v] = weight  # 최소 비용 업데이트
                 pre[v] = u  # 이전 정점 업데이트
                 heapq.heappush(pq, (cost[v], v))  # 우선순위 큐에 갱신된 값 추가
