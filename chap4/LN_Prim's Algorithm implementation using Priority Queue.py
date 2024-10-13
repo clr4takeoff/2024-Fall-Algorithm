@@ -1,4 +1,4 @@
-#chap4_Prim's Algorithm implementation using Priority Queue
+#chap4_40p_Prim's Algorithm implementation using Priority Queue
 
 import heapq
 
