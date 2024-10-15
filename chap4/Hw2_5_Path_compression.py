@@ -72,8 +72,8 @@ class UnionFind:
         # 컴포넌트의 수를 하나 줄임
         self.num_components -= 1
 
+        # 연산 후 상태 출력
         print(f"After union: Node {p+1} root is {self.find(p)+1}, Node {q+1} root is {self.find(q)+1}")
-        print(f"Component sizes: {self.sz}")
         print(f"Parent array: {self.parent_as_str()}\n")
 
     def parent_as_str(self):
